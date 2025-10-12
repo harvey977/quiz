@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JAVA/Question.com</title>
+    <style>
+        /* CSS for styling */
+        body {
+            background: linear-gradient(140deg,#efeb6b,rgb(35, 238, 4));            
+            font-family: Arial, sans-serif;
+            margin: 2px;
+            padding: 0;
+            width: auto;
+            height: auto;
+            align-items: center;
+        }		
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 10px solid #4fc5e9;
+            border-radius: 10px;
+            font-size: 40px;           
+        }
+            button {
+            background-color: #095c7a;
+            font-size: 40px;
+            color: #e1ff00;
+            cursor: pointer;
+			display: block;
+			margin: 0 auto;
+        }
+        .quiz-question {
+            margin-bottom: 10px;
+        }		
+		input[type="radio"] {
+        transform: scale(3); 
+		}		
+		button:hover{
+		background-color: #3498db;
+		color: red;
+		text-align: center;
+		transition: opacity 0.3s ease;
+		}
+    </style>
+</head>
+<body>
+    <!-- Quiz Page -->
+    <div class="container" id="quizPage">
+        <h2 style="text-align:center; text-shadow:0px 0px 5px yellow, 0px -5px 5px black;"> <u>Quiz </u></h2>
+        <div class="quiz-question">
+            <p>Question 1:Which keyword is used to prevent method overriding in Java?</p>
+            <input type="radio" name="q1" value="a1"> static<br>
+            <input type="radio" name="q1" value="a2"> final<br>
+            <input type="radio" name="q1" value="a3"> abstract<br>
+            <input type="radio" name="q1" value="a4"> private<br>
+        </div>        
+        <div class="quiz-question">
+            <p>Question 2: Which data structure in Java allows fast insertion and deletion operations at both ends?</p>
+            <input type="radio" name="q2" value="b1">  ArrayList <br>
+            <input type="radio" name="q2" value="b2">  LinkedList <br> 
+            <input type="radio" name="q2" value="b3">  HashSet <br>
+            <input type="radio" name="q2" value="b4">  Deque<br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 3: Which keyword is used to handle exceptions in Java?</p>
+            <input type="radio" name="q3" value="c1"> try<br>
+            <input type="radio" name="q3" value="c2"> catch<br>
+            <input type="radio" name="q3" value="c3"> throw><br>
+            <input type="radio" name="q3" value="c4"> finally<br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 4: Which Java keyword is used to implement multiple inheritance of type (interface) in Java?</p>
+            <input type="radio" name="q4" value="d1"> extends<br>
+            <input type="radio" name="q4" value="d2"> implements<br>
+            <input type="radio" name="q4" value="d3"> abstract<br>
+            <input type="radio" name="q4" value="d4"> interface<br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 5:Which type of variable in Java is shared among all instances of a class?</p>
+            <input type="radio" name="q5" value="e1"> static<br>
+            <input type="radio" name="q5" value="e2"> final<br>
+            <input type="radio" name="q5" value="e3"> volatile<br>
+            <input type="radio" name="q5" value="e4"> transient><br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 6: Which access modifier in Java restricts access to members within the same package?</p>
+            <input type="radio" name="q6" value="f1"> public<br>
+            <input type="radio" name="q6" value="f2"> private <br>
+            <input type="radio" name="q6" value="f3"> protected<br>
+            <input type="radio" name="q6" value="f4"> default<br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 7: Which Java keyword is used to exit from a loop?</p>
+            <input type="radio" name="q7" value="g1"> exit<br>
+            <input type="radio" name="q7" value="g2"> break <br>
+            <input type="radio" name="q7" value="g3"> continue<br>
+            <input type="radio" name="q7" value="g4"> return<br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 8: Which Java collection interface does not allow duplicate elements?</p>
+            <input type="radio" name="q8" value="h1"> List<br>
+            <input type="radio" name="q8" value="h2"> Set<br>
+            <input type="radio" name="q8" value="h3"> Map<br>
+            <input type="radio" name="q8" value="h4"> Collection<br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 9: Which Java keyword is used to allocate memory to an object?</p>
+            <input type="radio" name="q9" value="i1"> New <br>
+            <input type="radio" name="q9" value="i2"> create <br>
+            <input type="radio" name="q9" value="i3"> alloc<br>
+            <input type="radio" name="q9" value="i4"> instance<br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 10: Which method is used to convert a Java object into a JSON string?</p>
+            <input type="radio" name="q0" value="j1"> toJSONString<br>
+            <input type="radio" name="q0" value="j2"> toJson<br>
+            <input type="radio" name="q0" value="j3"> toString<br>
+            <input type="radio" name="q0" value="j4"> toJsonString<br>
+        </div>
+        <button onclick="submitQuiz()">Submit Quiz</button>
+    </div>
+
+    <!-- Result Page -->
+    <div class="container" id="resultPage" style="display: none;">
+        <h2 style="text-align:center;"><u>Quiz Result</u></h2>
+        <p>Your score is: <span id="score"></span></p>
+    </div>
+    <script>
+        var users = [];
+        function submitQuiz() {
+            var score = 0;
+            var q1Answer = document.querySelector('input[name="q1"]:checked').value;
+            var q2Answer = document.querySelector('input[name="q2"]:checked').value;
+            var q3Answer = document.querySelector('input[name="q3"]:checked').value;
+            var q4Answer = document.querySelector('input[name="q4"]:checked').value;
+            var q5Answer = document.querySelector('input[name="q5"]:checked').value;
+            var q6Answer = document.querySelector('input[name="q6"]:checked').value;
+            var q7Answer = document.querySelector('input[name="q7"]:checked').value;
+            var q8Answer = document.querySelector('input[name="q8"]:checked').value;
+            var q9Answer = document.querySelector('input[name="q9"]:checked').value;
+            var q0Answer = document.querySelector('input[name="q0"]:checked').value;
+
+            if (q1Answer === "a2") {
+                score += 1;
+            }
+            if (q2Answer === "b4") {
+                score += 1;
+            }
+            if (q3Answer === "c1") {
+                score += 1;
+            }
+            if (q4Answer === "d2") {
+                score += 1;
+            }
+           if (q5Answer === "e1") {
+                score += 1;
+           }
+           if (q6Answer === "f4") {
+                score += 1;
+           }
+           if (q7Answer === "g2") {
+                score += 1;
+           }
+           if (q8Answer === "h2") {
+                score += 1;
+           }
+           if (q9Answer === "i1") {
+                score += 1;
+           }
+           if (q0Answer === "j2") {
+                score += 1;
+           }
+           document.getElementById('quizPage').style.display = "none";
+           document.getElementById('resultPage').style.display = "block";
+           document.getElementById('score').textContent = score + "/10";
+        }
+    </script>
+</body>
+</html>

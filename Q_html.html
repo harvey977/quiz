@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML/Question.com</title>
+    <style>
+        /* CSS for styling */
+        body {
+            background: linear-gradient(140deg,#efeb6b,rgb(35, 238, 4));            
+            font-family: Arial, sans-serif;
+            margin: 2px;
+            padding: 0;
+            width: auto;
+            height: auto;
+            align-items: center;
+
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 10px solid #4fc5e9;
+            border-radius: 10px;
+            font-size: 40px; 
+        }
+            button {
+            background-color: #095c7a;
+            font-size: 40px;
+            color: #e1ff00;
+            cursor: pointer;
+			display: block;
+			margin: 0 auto;
+        }
+        .quiz-question {
+            margin-bottom: 10px;
+        }		
+		input[type="radio"] {
+			transform: scale(3); 
+		}		
+		button:hover{
+		background-color: #3498db;
+		color: red;
+		text-align: center;
+		transition: opacity 0.3s ease;
+		}   
+    </style>
+</head>
+<body>
+    <!-- Quiz Page -->
+    <div class="container" id="quizPage">
+        <h2 style="text-align:center; text-shadow:0px 0px 5px yellow, 0px -5px 5px red;"> <u>Quiz </u></h2>
+        <div class="quiz-question">
+            <p>Question 1: What does HTML stand for?</p>
+            <input type="radio" name="q1" value="a1"> Hyperlink Text Markup Language<br>
+            <input type="radio" name="q1" value="a2"> Hyper Transfer Markup Language<br>
+            <input type="radio" name="q1" value="a3"> Hyper Text Markup Language<br>
+            <input type="radio" name="q1" value="a4"> Home Tool Markup Language<br>
+        </div>        
+        <div class="quiz-question">
+            <p>Question 2: Which tag is used to create a hyperlink in HTML?</p>
+            <input type="radio" name="q2" value="b1">  < link > <br>
+            <input type="radio" name="q2" value="b2">  < a > <br> 
+            <input type="radio" name="q2" value="b3">  < href > <br>
+            <input type="radio" name="q2" value="b4">  < hyper ><br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 3: Which tag is used to define an unordered list in HTML?</p>
+            <input type="radio" name="q3" value="c1"> < ul ><br>
+            <input type="radio" name="q3" value="c2"> < ol ><br>
+            <input type="radio" name="q3" value="c3"> < li ><br>
+            <input type="radio" name="q3" value="c4"> < list ><br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 4: Which attribute is used to define the alternative text for an image in HTML?</p>
+            <input type="radio" name="q4" value="d1"> src<br>
+            <input type="radio" name="q4" value="d2"> alt<br>
+            <input type="radio" name="q4" value="d3"> title<br>
+            <input type="radio" name="q4" value="d4"> img<br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 5: Which tag is used to create a line break in HTML?</p>
+            <input type="radio" name="q5" value="e1"> < break ><br>
+            <input type="radio" name="q5" value="e2"> < lb > <br>
+            <input type="radio" name="q5" value="e3"> < br ><br>
+            <input type="radio" name="q5" value="e4"> < newline ><br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 6: Which HTML tag is used to define a section of content that could stand alone and be syndicated independently from the rest of the page?</p>
+            <input type="radio" name="q6" value="f1"> < section ><br>
+            <input type="radio" name="q6" value="f2"> < div > <br>
+            <input type="radio" name="q6" value="f3"> < aside ><br>
+            <input type="radio" name="q6" value="f4"> < article ><br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 7: Which HTML tag is used to define a caption for a < figure > element or a < details > element?</p>
+            <input type="radio" name="q7" value="g1"> < caption ><br>
+            <input type="radio" name="q7" value="g2"> < label > <br>
+            <input type="radio" name="q7" value="g3"> < legend ><br>
+            <input type="radio" name="q7" value="g4"> < summary ><br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 8: Which HTML tag is used to define a list of navigation links?</p>
+            <input type="radio" name="q8" value="h1"> < nav ><br>
+            <input type="radio" name="q8" value="h2"> < list ><br>
+            <input type="radio" name="q8" value="h3"> < ul ><br>
+            <input type="radio" name="q8" value="h4"> < links ><br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 9: Which HTML tag is used to specify a group of options that a user can select from?</p>
+            <input type="radio" name="q9" value="i1"> < option ><br>
+            <input type="radio" name="q9" value="i2"> < select > <br>
+            <input type="radio" name="q9" value="i3"> < input type="radio" ><br>
+            <input type="radio" name="q9" value="i4"> < fieldset ><br>
+        </div>
+        <div class="quiz-question">
+            <p>Question 10: Which HTML tag is used to define a container for an external application or interactive content (e.g., a plugin)?</p>
+            <input type="radio" name="q0" value="j1"> < object ><br>
+            <input type="radio" name="q0" value="j2"> < applet > <br>
+            <input type="radio" name="q0" value="j3"> < embed ><br>
+            <input type="radio" name="q0" value="j4"> < iframe ><br>
+        </div>
+        <button onclick="submitQuiz()">Submit Quiz</button>
+    </div>
+
+    <!-- Result Page -->
+    <div class="container" id="resultPage" style="display: none;">
+        <h2 style="text-align:center;"><u>Quiz Result</u></h2>
+        <p>Your score is: <span id="score"></span></p>
+    </div>
+    <script>
+        var users = [];
+        function submitQuiz() {
+            var score = 0;
+            var q1Answer = document.querySelector('input[name="q1"]:checked').value;
+            var q2Answer = document.querySelector('input[name="q2"]:checked').value;
+            var q3Answer = document.querySelector('input[name="q3"]:checked').value;
+            var q4Answer = document.querySelector('input[name="q4"]:checked').value;
+            var q5Answer = document.querySelector('input[name="q5"]:checked').value;
+            var q6Answer = document.querySelector('input[name="q6"]:checked').value;
+            var q7Answer = document.querySelector('input[name="q7"]:checked').value;
+            var q8Answer = document.querySelector('input[name="q8"]:checked').value;
+            var q9Answer = document.querySelector('input[name="q9"]:checked').value;
+            var q0Answer = document.querySelector('input[name="q0"]:checked').value;
+
+            if (q1Answer === "a3") {
+                score += 1;
+            }
+            if (q2Answer === "b2") {
+                score += 1;
+            }
+            if (q3Answer === "c1") {
+                score += 1;
+            }
+            if (q4Answer === "d2") {
+                score += 1;
+            }
+           if (q5Answer === "e3") {
+                score += 1;
+           }
+           if (q6Answer === "f4") {
+                score += 1;
+           }
+           if (q7Answer === "g3") {
+                score += 1;
+           }
+           if (q8Answer === "h1") {
+                score += 1;
+           }
+           if (q9Answer === "i2") {
+                score += 1;
+           }
+           if (q0Answer === "j1") {
+                score += 1;
+           }
+           document.getElementById('quizPage').style.display = "none";
+           document.getElementById('resultPage').style.display = "block";
+           document.getElementById('score').textContent = score + "/10";
+        }
+    </script>
+</body>
+</html>

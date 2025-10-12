@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz.com</title>
+    <style>
+       /* CSS for styling */
+        body {
+          background: linear-gradient(140deg,#40f8f8,rgb(103, 85, 238));
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          width: auto;
+          height: 100vh;
+          align-items: center;
+        }
+        .container {
+          max-width: 800px;
+          margin: 30px auto;
+          padding: 40px;
+          border: 1ch solid #e3e922;
+          border-radius: 10px;
+        }
+        input[type="text"], input[type="password"], input[type="submit"], button {
+          display: block;
+          margin-bottom: 10px;
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #081681;
+          border-radius: 5px;
+          box-sizing: border-box;
+        }
+        button {
+          background-color: #042e5b;
+          color: #e6cd13;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+  <!-- Registration Page -->
+  <div class="container" id="registrationPage">
+    <h2>Registration</h2>
+    <input type="text" id="regUsername" placeholder="Username">
+    <input type="password" id="regPassword" placeholder="Password">
+    <input type="submit" value="Register" onclick="registerUser()">
+  </div>
+  <!-- Login Page -->
+  <div class="container" id="loginPage" style="display: none;">
+    <h2>Login</h2>
+    <input type="text" id="loginUsername" placeholder="Username">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <input type="submit" value="Login" onclick="loginUser()">
+  </div>
+  <script>
+     // Dummy user data for registration and login
+     var users = [];
+
+    function registerUser() {
+            var username = document.getElementById('regUsername').value;
+            var password = document.getElementById('regPassword').value;
+            users.push({username: username, password: password});
+            document.getElementById('registrationPage').style.display = "none";
+            document.getElementById('loginPage').style.display = "block";
+            alert("Registration successful!");
+        }
+        function loginUser() {
+            var username = document.getElementById('loginUsername').value;
+            var password = document.getElementById('loginPassword').value;
+            var found = false;
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].username === username && users[i].password === password) {
+                    found = true;
+                    alert("Wellcome!");
+                    //it is conet for question
+                    window.location.assign("option.html")
+                    break;
+                }
+            }
+            if (found) {
+                document.getElementById('loginPage').style.display = "none";
+                document.getElementById('quizPage').style.display = "block";
+            }else {
+                alert("Invalid username or password!");
+            }
+        }
+  </script>
+</body>
+</html>
